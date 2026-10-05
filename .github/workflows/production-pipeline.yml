@@ -66,6 +66,8 @@ jobs:
     environment: staging
     steps:
       - name: Deploy to staging
+        env:
+          IMAGE_TAG: ${{ needs.build.outputs.image-tag }}
         run: |
           echo "Deploying to staging..."
           #kubectl set image deployment/app app=${{ needs.build.outputs.image-tag }}
