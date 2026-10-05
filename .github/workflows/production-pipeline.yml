@@ -70,7 +70,7 @@ jobs:
           IMAGE_TAG: ${{ needs.build.outputs.image-tag }}
         run: |
           echo "Deploying to staging..."
-          #kubectl set image deployment/app app=${{ needs.build.outputs.image-tag }}
+          #kubectl set image deployment/app app="$IMAGE_TAG"
 
   # Stage 4: Deploy to Production
   deploy-production:
